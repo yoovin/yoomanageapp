@@ -17,8 +17,10 @@ app.get('/cpu', async (req, res) => {
         cpuInfo.cpuSpeedCores = data.cores // cpu 코어 별 속도
     })
     await sysinfo.currentLoad().then(data => {
-        cpuInfo.load = data.currentLoad.toFixed(2) // cpu 사용량 %
-        cpuInfo.loadIdle = data.currentLoadIdle.toFixed(2) // cpu 사용 x %
+        // cpuInfo.load = data.currentLoad.toFixed(2) // cpu 사용량 %
+        // cpuInfo.loadIdle = data.currentLoadIdle.toFixed(2) // cpu 사용 x %
+        cpuInfo.load = data.currentLoad // cpu 사용량 %
+        cpuInfo.loadIdle = data.currentLoadIdle // cpu 사용 x %
     })
     await res.send(cpuInfo)
 })
