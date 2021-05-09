@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
@@ -18,7 +18,7 @@ const Cpu = () => {
 
   const [cpuInfo, setCpuInfo] = useState('')
   // const [cpuStatus, setCpuStatus] = useState('')
-  const cpuData = useRef([])
+  // const cpuData = useRef([])
 
   const fetchData = () => {
       axios.get('/cpu')

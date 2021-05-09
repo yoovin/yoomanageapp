@@ -1,10 +1,17 @@
 const sysinfo = require('systeminformation')
-const app = require('express')()
+const express = require('express')
+const app = express()
+const path = require('path')
 const port = 3030
 const byteProByte = 1048576 // 1024 * 1024
 
+app.get('/', (req, res) => {
+    res.send(app.use(express.static(path.join((__dirname, '../build')))))
+})
+
 app.get('/cpu', async (req, res) => {
     let cpuInfo = {}
+    console.log(__dirname)
     await sysinfo.cpu().then(data => {
         cpuInfo.manu = data.manufacturer + data.brand // cpu이름
         cpuInfo.core = data.cores //cpu 코어 수
